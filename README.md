@@ -40,3 +40,6 @@ Experimented with unsupervised machine learning algorithms to automatically grou
 1. Clone this repository to your local machine:
    ```bash
    git clone https://github.com/hien-cybers/data-mining-wifi-rssi
+Install the required libraries:
+   ```bash
+   pip install pandas numpy matplotlib seaborn scikit-learn
