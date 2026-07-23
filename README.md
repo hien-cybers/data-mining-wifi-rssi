@@ -38,8 +38,9 @@ Experimented with unsupervised machine learning algorithms to automatically grou
 
 ## ⚙️ Installation & Setup
 1. Clone this repository to your local machine:
-   ```bash
-   git clone https://github.com/hien-cybers/data-mining-wifi-rssi
-Install the required libraries:
-   ```bash
-   pip install pandas numpy matplotlib seaborn scikit-learn
+      ```bash
+      git clone https://github.com/hien-cybers/data-mining-wifi-rssi
+   Install the required libraries:
+      ```bash
+      pip install pandas numpy matplotlib seaborn scikit-learn
+ 2 Open the *.ipynb file and execute "Run All Cells" to view the entire pipeline and visualizations.
