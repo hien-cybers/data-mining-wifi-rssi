@@ -1,42 +1,42 @@
 # 📍 WiFi Indoor Localization using Machine Learning
 
-## 📖 Giới thiệu Dự án
-Dự án Khai phá dữ liệu (Data Mining) áp dụng các thuật toán Học máy có giám sát và không giám sát để dự đoán vị trí thiết bị trong không gian kín (Indoor Positioning). Dựa trên dữ liệu cường độ tín hiệu mạng (RSSI) thu thập từ 7 Router WiFi khác nhau, mô hình có thể phân lớp chính xác thiết bị đang nằm ở căn phòng nào trong 4 căn phòng cho trước.
+## 📖 Project Overview
+This Data Mining project applies both supervised and unsupervised Machine Learning algorithms to predict a device's location within an indoor space (Indoor Positioning). Based on Received Signal Strength Indicator (RSSI) data collected from 7 different WiFi routers, the model can accurately classify which of the 4 designated rooms the device is currently located in.
 
-## 📊 Tập dữ liệu (Dataset)
-*   **Nguồn:** D08 - WiFi Localization Dataset.
-*   **Kích thước:** 2000 mẫu dữ liệu (tương ứng với 4 căn phòng, mỗi phòng ~500 mẫu).
-*   **Đặc trưng (Features):** 7 biến liên tục đại diện cho cường độ tín hiệu (RSSI) đo bằng thiết bị di động.
-*   **Nhãn (Target):** Biến phân loại (Categorical) từ 1 đến 4, đại diện cho 4 căn phòng. Tập dữ liệu cân bằng tuyệt đối.
+## 📊 Dataset
+*   **Source:** D08 - WiFi Localization Dataset.
+*   **Size:** 2000 data samples (corresponding to 4 rooms, ~500 samples per room).
+*   **Features:** 7 continuous variables representing the signal strength (RSSI) measured by a mobile device.
+*   **Target (Label):** Categorical variable ranging from 1 to 4, representing the 4 rooms. The dataset is perfectly balanced.
 
-## 🛠 Công nghệ & Thư viện sử dụng
-*   **Ngôn ngữ:** Python 3.1x
-*   **Môi trường:** Jupyter Notebook (Visual Studio Code)
-*   **Thư viện xử lý & Trực quan hóa:** `pandas`, `numpy`, `matplotlib`, `seaborn`
-*   **Thư viện Học máy:** `scikit-learn` (PCA, KNN, Random Forest, SVM, K-Means, DBSCAN)
+## 🛠 Technologies & Libraries
+*   **Language:** Python 3.1x
+*   **Environment:** Jupyter Notebook (Visual Studio Code)
+*   **Data Manipulation & Visualization:** `pandas`, `numpy`, `matplotlib`, `seaborn`
+*   **Machine Learning:** `scikit-learn` (PCA, KNN, Random Forest, SVM, K-Means, DBSCAN)
 
-## 🚀 Pipeline Phân tích & Kết quả
-Dự án được triển khai qua 4 giai đoạn cốt lõi:
+## 🚀 Analytical Pipeline & Results
+The project is implemented through 4 core phases:
 
 ### 1. Exploratory Data Analysis (EDA)
-Đọc dữ liệu, kiểm tra cấu trúc định dạng và trích xuất các thông số thống kê mô tả cơ bản (Min, Max, Mean) để đánh giá độ nhiễu của tín hiệu.
+Loaded the dataset, inspected the data structure, and extracted basic descriptive statistics (Min, Max, Mean) to evaluate signal noise and data distribution.
 
-### 2. Giảm chiều dữ liệu (Dimensionality Reduction)
-Sử dụng **PCA (Principal Component Analysis)** để nén dữ liệu từ không gian 7 chiều (7 Routers) xuống 2 chiều (2D). Kết quả trực quan hóa cho thấy các điểm dữ liệu tụ thành 4 cụm tương đối rõ ràng, minh chứng cho tính khả thi của việc dùng Học máy để phân loại.
+### 2. Dimensionality Reduction
+Utilized **PCA (Principal Component Analysis)** to compress the data from a 7-dimensional space (7 Routers) down to 2 dimensions (2D). The visualization shows that the data points form 4 relatively distinct clusters, demonstrating the feasibility of using Machine Learning for this classification task.
 
-### 3. Phân lớp (Classification)
-Tiến hành chuẩn hóa dữ liệu (StandardScaler) và sử dụng `GridSearchCV` kết hợp `10-Fold Cross Validation` để tinh chỉnh tham số cho 3 mô hình học máy. 
-🏆 **Kết quả F-Score (Macro):**
-*   **K-Nearest Neighbors (KNN):** `98.75%` (Best parameters: `n_neighbors=3`, `weights='uniform'`) - *Mô hình tối ưu nhất*
+### 3. Classification
+Performed data standardization (`StandardScaler`) and utilized `GridSearchCV` combined with `10-Fold Cross Validation` to fine-tune hyperparameters for 3 machine learning models. 
+🏆 **F-Score (Macro) Results:**
+*   **K-Nearest Neighbors (KNN):** `98.75%` (Best parameters: `n_neighbors=3`, `weights='uniform'`) - *Most optimal model*
 *   **Support Vector Machine (SVM):** `98.35%` 
 *   **Random Forest:** `98.30%` 
 
-### 4. Gom cụm (Clustering)
-Thử nghiệm các thuật toán học máy không giám sát để nhóm các tín hiệu WiFi tự động mà không cần nhãn.
-*   **K-Means (k=4):** Hoạt động hiệu quả với điểm Adjusted Rand Index (ARI) đạt **~0.81**, cho thấy sự tương đồng cao với nhãn thực tế.
-*   **DBSCAN:** Thất bại trong việc gom cụm với cấu hình mật độ mặc định do dải tín hiệu phân bố không đều, chứng minh K-Means ổn định hơn đối với cấu trúc dữ liệu này.
+### 4. Clustering
+Experimented with unsupervised machine learning algorithms to automatically group WiFi signals without using ground-truth labels.
+*   **K-Means (k=4):** Performed effectively with an Adjusted Rand Index (ARI) score of **~0.81**, indicating a high similarity to the actual labels.
+*   **DBSCAN:** Struggled to cluster effectively with the default density configuration due to the uneven distribution of the signal range, proving that K-Means is more stable for this specific data structure.
 
-## ⚙️ Hướng dẫn cài đặt & Cấu hình
-1. Clone repository này về máy:
+## ⚙️ Installation & Setup
+1. Clone this repository to your local machine:
    ```bash
-   git clone [https://github.com/Tên-Tài-Khoản-Của-Bạn/wifi-indoor-localization.git](https://github.com/Tên-Tài-Khoản-Của-Bạn/wifi-indoor-localization.git)
+   git clone https://github.com/hien-cybers/data-mining-wifi-rssi
