@@ -44,3 +44,6 @@ Experimented with unsupervised machine learning algorithms to automatically grou
       ```bash
       pip install pandas numpy matplotlib seaborn scikit-learn
  2 Open the *.ipynb file and execute "Run All Cells" to view the entire pipeline and visualizations.
+ 
+ 
+ This project was developed for the purpose of research and enhancing practical data mining skills.
